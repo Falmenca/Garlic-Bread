@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d1ndwjoywcw8w"]
+
+[ext_resource type="Script" uid="uid://jlj787l1onud" path="res://Main_Menu.gd" id="1_gtid3"]
+[ext_resource type="Texture2D" uid="uid://ckxxuorij54af" path="res://MainMenu_Background.png" id="1_m625n"]
+[ext_resource type="Texture2D" uid="uid://cfwfuj0kduo8e" path="res://Assets/Level_Menu_Assets/level_1.png" id="2_wugcc"]
+
+[sub_resource type="FontVariation" id="FontVariation_m625n"]
+spacing_glyph = 3
+
+[node name="MainMenu" type="Control" unique_id=227889181]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtid3")
+
+[node name="Background" type="TextureRect" parent="." unique_id=92987329]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_m625n")
+
+[node name="LevelTitle" type="RichTextLabel" parent="Background" unique_id=233898373]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 100.0
+theme_override_fonts/bold_font = SubResource("FontVariation_m625n")
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b]Level Select[/b]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Levels" type="Control" parent="Background" unique_id=840527603]
+anchors_preset = 0
+offset_top = 180.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="LevelTree" type="VBoxContainer" parent="Background/Levels" unique_id=695405142]
+layout_mode = 0
+offset_left = 690.0
+offset_right = 1202.0
+offset_bottom = 1028.0
+
+[node name="Level_1" type="HBoxContainer" parent="Background/Levels/LevelTree" unique_id=1320700305]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Background/Levels/LevelTree/Level_1" unique_id=275444153]
+layout_mode = 2
+icon = ExtResource("2_wugcc")
+metadata/lvl_index = 0
+
+[node name="Level_2" type="HBoxContainer" parent="Background/Levels/LevelTree" unique_id=1687763389]
+layout_mode = 2
+alignment = 2
+
+[node name="Button" type="Button" parent="Background/Levels/LevelTree/Level_2" unique_id=1440897152]
+layout_mode = 2
+icon = ExtResource("2_wugcc")
+metadata/lvl_index = 1
