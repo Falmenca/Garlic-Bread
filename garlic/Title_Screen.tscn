@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bcd3l0o27r84c"]
 
 [ext_resource type="Script" uid="uid://bmjdep8y8l7o3" path="res://Title_Screen.gd" id="1_fqm6y"]
-[ext_resource type="Texture2D" uid="uid://c2ysi0mxoawlr" path="res://TitleScreen_Background.png" id="1_hgv8g"]
 
 [node name="TitleScreen" type="Control" unique_id=452110955]
 layout_mode = 3
@@ -16,7 +15,6 @@ script = ExtResource("1_fqm6y")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_hgv8g")
 
 [node name="PressAnyButton" type="RichTextLabel" parent="Background" unique_id=1907644338]
 layout_mode = 0
@@ -36,6 +34,6 @@ offset_right = 1920.0
 offset_bottom = 500.0
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "[wave amp=50 freq=2][color=\"steel_blue\"]Squib Game"
+text = "[wave amp=50 freq=2][color=\"red\"]Garlic Bread"
 horizontal_alignment = 1
 vertical_alignment = 1
