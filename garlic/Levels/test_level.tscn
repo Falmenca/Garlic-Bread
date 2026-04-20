@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bs58ocpyv6hg"]
+
+[ext_resource type="Texture2D" uid="uid://l102xsjl07ao" path="res://Assets/6MG0aX.png" id="1_ormqy"]
+[ext_resource type="PackedScene" uid="uid://dwcp4mrk143jq" path="res://Scripts/Player/goregirl.tscn" id="2_00vsl"]
+[ext_resource type="PackedScene" uid="uid://5gtqhauko45y" path="res://Scripts/enemy/slime.tscn" id="3_4k50d"]
+
+[node name="Test level" type="Node" unique_id=2069793797]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619319637]
+position = Vector2(-78, 112.00003)
+scale = Vector2(20.845058, 17.725557)
+texture = ExtResource("1_ormqy")
+
+[node name="Goregirl" parent="." unique_id=435559364 instance=ExtResource("2_00vsl")]
+speed = 800
+
+[node name="Camera2D" type="Camera2D" parent="Goregirl" unique_id=673530839]
+zoom = Vector2(0.2, 0.2)
+
+[node name="slime" parent="." unique_id=655848703 instance=ExtResource("3_4k50d")]
+position = Vector2(6357, -1880)
+collision_layer = 2
+speed = 400
+
+[node name="slime2" parent="." unique_id=109107600 instance=ExtResource("3_4k50d")]
+position = Vector2(6518, 1350)
+collision_layer = 2
+speed = 400
+
+[node name="slime3" parent="." unique_id=569323319 instance=ExtResource("3_4k50d")]
+position = Vector2(7499, -127)
+collision_layer = 2
+speed = 400
