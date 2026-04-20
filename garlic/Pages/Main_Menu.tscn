@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bmjdep8y8l7o3" path="res://Pages/Main_Menu.gd" id="1_gtid3"]
 [ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_wugcc"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkhfw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="MainMenu" type="Control" unique_id=452110955]
 layout_mode = 3
 anchors_preset = 15
@@ -43,6 +46,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dkhfw")
 
 [node name="Play" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1436036911]
 layout_mode = 0
