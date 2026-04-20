@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dysajvi1j1df6" path="res://Assets/Player/2d/run/run-6.png" id="7_k7ysd"]
 [ext_resource type="Texture2D" uid="uid://bvn8ud2514fle" path="res://Assets/Player/2d/run/run-7.png" id="8_n8pw0"]
 [ext_resource type="Texture2D" uid="uid://ioq6ukdnw4u5" path="res://Assets/Player/2d/run/run-8.png" id="9_nbtvi"]
+[ext_resource type="PackedScene" uid="uid://d2ukcxle2ssa8" path="res://Pages/Utility/Pause_Menu.tscn" id="10_l27a8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ytrmd"]
 resource_local_to_scene = true
@@ -62,3 +63,5 @@ frame_progress = 0.4572867
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1327011017]
 shape = SubResource("RectangleShape2D_3i7jw")
+
+[node name="PauseMenu" parent="." unique_id=452110955 instance=ExtResource("10_l27a8")]
