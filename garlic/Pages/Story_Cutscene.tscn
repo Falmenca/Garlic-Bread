@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d1ndwjoywcw8w"]
+
+[ext_resource type="Script" uid="uid://jlj787l1onud" path="res://Pages/Story_Cutscene.gd" id="1_e04nv"]
+
+[node name="Cutscene" type="Control" unique_id=227889181]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e04nv")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2043518960]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PressAnyButton" type="RichTextLabel" parent="Background" unique_id=840937153]
+layout_mode = 0
+offset_top = 1000.0
+offset_right = 1920.0
+offset_bottom = 1040.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Press Any Key To Continue[/pulse]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="RichTextLabel" parent="Background" unique_id=168234098]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 100.0
+offset_right = 1870.0
+offset_bottom = 1020.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[wave amp=10 freq=2][color=#dde0d9] In the year 2026, there was an incident deep in the Russian mountains....
+
+Scientists unleashed a monster unto our planet... 
+
+Unable to control it, there is only one way we could survive... By feeding it garlic bread."

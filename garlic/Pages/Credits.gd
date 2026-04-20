@@ -5,12 +5,6 @@ extends Node
 
 var reveal_main_text: Tween
 
-# Metadata in buttons determine index of level chosen. Starts at 0 for level 1.
-var Levels: Array[String] = [
-	"res://Levels/01/Level_1.tscn",
-	"res://Levels/02/Level_2.tscn"
-]
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().process_frame
@@ -25,7 +19,7 @@ func _input(event):
 			main_text.visible_ratio = 1.0
 	
 	if event.is_action_pressed("ui_accept") and main_text.visible_ratio == 1.0 and press_any_button.visible == true:
-		get_tree().change_scene_to_file("res://Levels/01/Level_1.tscn")
+		get_tree().change_scene_to_file("res://Pages/Main_Menu.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,4 +30,4 @@ func display_text():
 	
 	# tween to animation visible ratio
 	reveal_main_text = create_tween()
-	reveal_main_text.tween_property(main_text, "visible_ratio", 1.0, 20.0)
+	reveal_main_text.tween_property(main_text, "visible_ratio", 1.0, 8.0)

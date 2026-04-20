@@ -3,6 +3,7 @@ extends Node
 @onready var options = [
 	$Background/MenuOptions/Play,
 	$Background/MenuOptions/Settings,
+	$Background/MenuOptions/Credits,
 	$Background/MenuOptions/Quit
 ]
 
@@ -12,11 +13,6 @@ extends Node
 
 var firstTimeTriggered = false
 var current_selection = 0
-
-var Paths: Array[String] = [
-	"res://Levels/01/Level_1.tscn",
-	"res://Levels/02/Level_2.tscn"
-]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,7 +59,8 @@ func update_selection():
 	
 func execute_selection():
 	match current_selection:
-		0: get_tree().change_scene_to_file("res://Story_Cutscene.tscn")
+		0: get_tree().change_scene_to_file("res://Pages/Story_Cutscene.tscn")
 		1: print("Settings Pressed")
-		2: get_tree().quit()
+		2: get_tree().change_scene_to_file("res://Pages/Credits.tscn")
+		3: get_tree().quit()
 	
