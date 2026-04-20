@@ -1,13 +1,9 @@
-[gd_scene format=3 uid="uid://d1ndwjoywcw8w"]
+[gd_scene format=3 uid="uid://bcd3l0o27r84c"]
 
-[ext_resource type="Script" uid="uid://jlj787l1onud" path="res://Main_Menu.gd" id="1_gtid3"]
-[ext_resource type="Texture2D" uid="uid://ckxxuorij54af" path="res://MainMenu_Background.png" id="1_m625n"]
-[ext_resource type="Texture2D" uid="uid://cfwfuj0kduo8e" path="res://Assets/Level_Menu_Assets/level_1.png" id="2_wugcc"]
+[ext_resource type="Script" uid="uid://bmjdep8y8l7o3" path="res://Main_Menu.gd" id="1_gtid3"]
+[ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_wugcc"]
 
-[sub_resource type="FontVariation" id="FontVariation_m625n"]
-spacing_glyph = 3
-
-[node name="MainMenu" type="Control" unique_id=227889181]
+[node name="MainMenu" type="Control" unique_id=452110955]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,48 +12,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gtid3")
 
-[node name="Background" type="TextureRect" parent="." unique_id=92987329]
+[node name="Background" type="TextureRect" parent="." unique_id=1698599448]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_m625n")
 
-[node name="LevelTitle" type="RichTextLabel" parent="Background" unique_id=233898373]
-layout_mode = 1
+[node name="PressAnyButton" type="RichTextLabel" parent="Background" unique_id=1907644338]
+layout_mode = 0
+offset_top = 600.0
 offset_right = 1920.0
-offset_bottom = 100.0
-theme_override_fonts/bold_font = SubResource("FontVariation_m625n")
-theme_override_font_sizes/bold_font_size = 60
+offset_bottom = 640.0
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[b]Level Select[/b]"
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Press Any Key To Continue[/pulse]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Levels" type="Control" parent="Background" unique_id=840527603]
-anchors_preset = 0
-offset_top = 180.0
+[node name="Title" type="RichTextLabel" parent="Background" unique_id=773433097]
+layout_mode = 0
+offset_top = 400.0
+offset_right = 1920.0
+offset_bottom = 500.0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][color=\"red\"]Garlic Bread"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuOptions" type="ItemList" parent="Background" unique_id=512145259]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="LevelTree" type="VBoxContainer" parent="Background/Levels" unique_id=695405142]
+[node name="Play" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1436036911]
 layout_mode = 0
-offset_left = 690.0
-offset_right = 1202.0
-offset_bottom = 1028.0
+offset_top = 600.0
+offset_right = 1920.0
+offset_bottom = 645.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Play Game"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/Play = ""
 
-[node name="Level_1" type="HBoxContainer" parent="Background/Levels/LevelTree" unique_id=1320700305]
-layout_mode = 2
+[node name="Settings" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1505547760]
+layout_mode = 0
+offset_top = 695.0
+offset_right = 1920.0
+offset_bottom = 740.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Settings"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/Settings = ""
 
-[node name="Button" type="Button" parent="Background/Levels/LevelTree/Level_1" unique_id=275444153]
-layout_mode = 2
-icon = ExtResource("2_wugcc")
-metadata/lvl_index = 0
+[node name="Quit" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1529228334]
+layout_mode = 0
+offset_top = 790.0
+offset_right = 1920.0
+offset_bottom = 835.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Quit"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/Quit = ""
 
-[node name="Level_2" type="HBoxContainer" parent="Background/Levels/LevelTree" unique_id=1687763389]
-layout_mode = 2
-alignment = 2
-
-[node name="Button" type="Button" parent="Background/Levels/LevelTree/Level_2" unique_id=1440897152]
-layout_mode = 2
-icon = ExtResource("2_wugcc")
-metadata/lvl_index = 1
+[node name="ArrowSelector" type="Sprite2D" parent="Background/MenuOptions" unique_id=1605531613]
+position = Vector2(820, 610)
+rotation = 1.5707964
+texture = ExtResource("2_wugcc")
