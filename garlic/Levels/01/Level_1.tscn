@@ -51,7 +51,7 @@ size = Vector2(72.5, 68.5)
 
 [node name="Level1" type="Node2D" unique_id=810896735]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1571596404]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1571596404 groups=["player"]]
 disable_mode = 2
 script = ExtResource("2_8230u")
 

@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bakptstveujb5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1i55d"]
+[ext_resource type="Script" uid="uid://cclnrykj88ci0" path="res://Scripts/Enemy/Behaviour.gd" id="1_brvl6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_brvl6"]
 
 [node name="Enemy" type="StaticBody2D" unique_id=671984780]
+script = ExtResource("1_brvl6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203410618]
-shape = SubResource("CircleShape2D_1i55d")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=604638240]
+shape = SubResource("CircleShape2D_brvl6")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=212690924]
