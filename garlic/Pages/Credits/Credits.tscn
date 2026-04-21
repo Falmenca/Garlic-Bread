@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://d1ndwjoywcw8w"]
+[gd_scene format=3 uid="uid://bfire7cl30jfi"]
 
-[ext_resource type="Script" uid="uid://jlj787l1onud" path="res://Pages/Story_Cutscene.gd" id="1_e04nv"]
+[ext_resource type="Script" uid="uid://cegs547vv4mkr" path="res://Pages/Credits/Credits.gd" id="1_lhmol"]
 
-[node name="Cutscene" type="Control" unique_id=227889181]
+[node name="Credits" type="Control" unique_id=227889181]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e04nv")
+script = ExtResource("1_lhmol")
 
 [node name="Background" type="TextureRect" parent="." unique_id=2043518960]
 layout_mode = 0
@@ -23,7 +23,7 @@ offset_right = 1920.0
 offset_bottom = 1040.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Press Any Key To Continue[/pulse]"
+text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Press Any Key To Go Back To Menu[/pulse]"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -35,8 +35,11 @@ offset_right = 1870.0
 offset_bottom = 1020.0
 theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
-text = "[wave amp=10 freq=1.5][color=#dde0d9] In the year 2026, there was an incident deep in the Russian mountains....
-
-Scientists unleashed a monster unto our planet... 
-
-Unable to control it, there is only one way we could survive... By feeding it garlic bread."
+text = "[wave amp=10 freq=2][color=#dde0d9]This game was created for The Eye Jam II 2026.
+	
+Team:
+Flamenca - Dev
+Kittyslayer - Dev
+kemskat - Dev
+Squib - Dev"
+horizontal_alignment = 1
