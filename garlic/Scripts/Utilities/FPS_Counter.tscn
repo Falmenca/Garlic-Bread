@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b618ym5jt5gu3"]
+
+[ext_resource type="Script" uid="uid://cr72wrconfsof" path="res://Scripts/Utilities/fps_counter.gd" id="1_7wxps"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=347473015]
+process_mode = 3
+layer = 20
+script = ExtResource("1_7wxps")
+
+[node name="Label" type="Label" parent="." unique_id=1687916954]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_top = 10.0
+offset_right = 56.5
+offset_bottom = 34.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "FPS:  N/A"
+horizontal_alignment = 1

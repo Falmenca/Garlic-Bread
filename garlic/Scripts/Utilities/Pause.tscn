@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2ukcxle2ssa8"]
 
-[ext_resource type="Script" uid="uid://yf0a4uosl4r3" path="res://Pages/Utility/Pause_Menu.gd" id="2_06sv3"]
-[ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_77ob4"]
+[ext_resource type="Script" uid="uid://cq83tgi1edkvf" path="res://Scripts/Utilities/Pause.gd" id="1_b0aok"]
+[ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_uft1l"]
 
 [node name="PauseMenu" type="Control" unique_id=452110955]
 process_mode = 3
@@ -11,7 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_06sv3")
+script = ExtResource("1_b0aok")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1698599448]
 layout_mode = 0
@@ -89,4 +89,4 @@ metadata/Quit = ""
 [node name="ArrowSelector" type="Sprite2D" parent="Background/MenuOptions" unique_id=1605531613]
 position = Vector2(820, 610)
 rotation = 1.5707964
-texture = ExtResource("2_77ob4")
+texture = ExtResource("2_uft1l")

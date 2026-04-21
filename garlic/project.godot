@@ -15,6 +15,13 @@ run/main_scene="uid://bcd3l0o27r84c"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+FpsCounter="*uid://b618ym5jt5gu3"
+MenuController="*uid://bmjdep8y8l7o3"
+Pause="*uid://d2ukcxle2ssa8"
+Settings="*uid://d3hbrknx3rdgi"
+
 [display]
 
 window/size/viewport_width=1920
