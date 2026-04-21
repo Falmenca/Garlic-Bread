@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://lfqn8biumi7e" path="res://Assets/Player/Goregirl/goregirl1.png" id="1_ca6i5"]
 [ext_resource type="Script" uid="uid://5ehwfwddrkl5" path="res://Scripts/Player/goregirl.gd" id="1_ekb72"]
+[ext_resource type="PackedScene" uid="uid://bdrc50ve4q5d8" path="res://Scripts/hurtbox.tscn" id="3_7vfvk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ekb72"]
 animations = [{
@@ -17,15 +18,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vfvk"]
 size = Vector2(10.121148, 15.781589)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vfvk"]
+
 [node name="Goregirl" type="CharacterBody2D" unique_id=435559364]
 script = ExtResource("1_ekb72")
-speed = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1249122016]
 sprite_frames = SubResource("SpriteFrames_ekb72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320028704]
-visible = false
 position = Vector2(-3.9999924, 10.380289)
-scale = Vector2(29.4433, 47.952118)
+scale = Vector2(25.363459, 42.4054)
 shape = SubResource("RectangleShape2D_7vfvk")
+
+[node name="Hurtbox" parent="." unique_id=662622391 instance=ExtResource("3_7vfvk")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=1409551555]
+scale = Vector2(16.735706, -25.749859)
+shape = SubResource("CapsuleShape2D_7vfvk")
+debug_color = Color(0.34548637, 0.61409646, 0.26480636, 0.41960785)
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_hurtbox_area_entered"]

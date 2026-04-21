@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var health = 100
 @export var speed = 400 
 var direction : Vector2
 var acceleration = 5
@@ -19,3 +20,6 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+
+func take_damage(dmg):
+	health = health - dmg
