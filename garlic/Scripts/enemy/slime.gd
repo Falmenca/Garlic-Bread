@@ -4,7 +4,8 @@ var health = 50
 @export var speed = 100
 
 var PosAttack : Vector2
-var RandDist = 0
+var RandDistX = 0
+var RandDistY = 0
 var player 
 
 func _ready():
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 		_death()
 	
 	if position.distance_to(player.position)>200:
-		PosAttack= Vector2(player.position.x + RandDist, player.position.y + RandDist)
+		PosAttack= Vector2(player.position.x + RandDistX, player.position.y + RandDistY)
 	else:
 		PosAttack = player.position
 	
@@ -30,4 +31,7 @@ func _death():
 	#dies
 
 func _on_pos_timer_timeout() -> void:
-	RandDist = randf_range(200,1000)
+	RandDistX = randf_range(-200,200)
+	RandDistY = randf_range(-200,200)
+
+	print(RandDistY, RandDistX)

@@ -21,6 +21,7 @@ FpsCounter="*uid://b618ym5jt5gu3"
 MenuController="*uid://bmjdep8y8l7o3"
 Pause="*uid://d2ukcxle2ssa8"
 Settings="*uid://d3hbrknx3rdgi"
+Global="*uid://4fwegk027uob"
 
 [display]
 
