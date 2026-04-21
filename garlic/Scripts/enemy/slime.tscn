@@ -16,17 +16,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s5nnf"]
+
 [node name="slime" type="CharacterBody2D" unique_id=655848703]
 script = ExtResource("1_s5nnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1294941869]
 shape = SubResource("CircleShape2D_5xwky")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=118779749]
-sprite_frames = SubResource("SpriteFrames_sxwx3")
-
-[node name="PosTimer" type="Timer" parent="." unique_id=271025451]
-wait_time = 1.536
+[node name="ChaseTimer" type="Timer" parent="." unique_id=271025451]
+wait_time = 5.331
 autostart = true
 
-[connection signal="timeout" from="PosTimer" to="." method="_on_pos_timer_timeout"]
+[node name="RotationOffset" type="Node2D" parent="." unique_id=152970677]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=118779749]
+sprite_frames = SubResource("SpriteFrames_sxwx3")
+
+[node name="Hitbox" type="Area2D" parent="RotationOffset" unique_id=1200637552]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationOffset/Hitbox" unique_id=1612420209]
+position = Vector2(33, 157.99998)
+scale = Vector2(28.291126, 25.689898)
+shape = SubResource("CircleShape2D_s5nnf")
+debug_color = Color(0.9597656, 0.046804205, 0.49611515, 0.41960785)
+
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
