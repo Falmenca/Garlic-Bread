@@ -1,21 +1,43 @@
 [gd_scene format=3 uid="uid://5gtqhauko45y"]
 
 [ext_resource type="Script" uid="uid://dckmwh6odqtd6" path="res://Scripts/enemy/slime.gd" id="1_s5nnf"]
+[ext_resource type="Shader" uid="uid://btqdlnrsu0iku" path="res://Shader/hitflash.tres" id="1_s67yt"]
 [ext_resource type="Texture2D" uid="uid://csjyfioy2hfc8" path="res://Assets/Enemy/slimepng.png" id="2_aux67"]
 [ext_resource type="PackedScene" uid="uid://chogew3hbqn0l" path="res://Scripts/hitbox.tscn" id="3_aux67"]
+[ext_resource type="Texture2D" uid="uid://bh5hk7opd7nr0" path="res://Assets/Enemy/goreslime.png" id="3_sxwx3"]
 [ext_resource type="Script" uid="uid://6br7gglc03eq" path="res://Scripts/hurtbox.gd" id="4_5xwky"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j2ha"]
+resource_local_to_scene = true
+shader = ExtResource("1_s67yt")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_5xwky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s67yt"]
+atlas = ExtResource("3_sxwx3")
+region = Rect2(0, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j2ha"]
+atlas = ExtResource("3_sxwx3")
+region = Rect2(0, 744, 744, 744)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sxwx3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_aux67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s67yt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j2ha")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxwx3"]
@@ -47,10 +69,10 @@ tracks/0/path = NodePath("RotationOffset/Hitbox/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.43333334, 0.46666667),
+"times": PackedFloat32Array(0, 0.26666668, 0.46666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true, true, false]
+"values": [false, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s67yt"]
@@ -59,7 +81,46 @@ _data = {
 &"attack": SubResource("Animation_sxwx3")
 }
 
+[sub_resource type="Animation" id="Animation_s67yt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7j2ha"]
+resource_name = "hitflash"
+length = 0.22
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3x35"]
+_data = {
+&"RESET": SubResource("Animation_s67yt"),
+&"hitflash": SubResource("Animation_7j2ha")
+}
+
 [node name="slime" type="CharacterBody2D" unique_id=655848703]
+material = SubResource("ShaderMaterial_7j2ha")
+motion_mode = 1
 script = ExtResource("1_s5nnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1294941869]
@@ -73,6 +134,8 @@ autostart = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=118779749]
 sprite_frames = SubResource("SpriteFrames_sxwx3")
+autoplay = "default"
+frame_progress = 0.2781079
 
 [node name="Hitbox" parent="RotationOffset" unique_id=1750913249 instance=ExtResource("3_aux67")]
 collision_layer = 4
@@ -99,6 +162,9 @@ debug_color = Color(0.5904864, 0.5474075, 0.055359527, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=977567907]
 libraries/ = SubResource("AnimationLibrary_s67yt")
+
+[node name="ShaderPlayer" type="AnimationPlayer" parent="." unique_id=869612453]
+libraries/ = SubResource("AnimationLibrary_b3x35")
 
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -21,6 +21,7 @@ size = Vector2(10.121148, 15.781589)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vfvk"]
 
 [node name="Goregirl" type="CharacterBody2D" unique_id=435559364]
+motion_mode = 1
 script = ExtResource("1_ekb72")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1249122016]

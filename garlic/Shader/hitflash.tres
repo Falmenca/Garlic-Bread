@@ -1,0 +1,31 @@
+[gd_resource type="VisualShader" format=3 uid="uid://btqdlnrsu0iku"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_cvfgw"]
+output_port_for_preview = 0
+parameter_name = "tint"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_cjcws"]
+parameter_name = "enabled"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_5o1ms"]
+default_input_values = [0, 0.0, 1, 1.0, 2, 1e-05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5p2td"]
+input_name = "color"
+
+[resource]
+mode = 1
+flags/light_only = false
+preview_params/enabled = "false"
+nodes/vertex/0/position = Vector2(928, 272)
+nodes/vertex/2/node = SubResource("VisualShaderNodeColorParameter_cvfgw")
+nodes/vertex/2/position = Vector2(122.4, 166)
+nodes/vertex/3/node = SubResource("VisualShaderNodeBooleanParameter_cjcws")
+nodes/vertex/3/position = Vector2(384, 400)
+nodes/vertex/4/node = SubResource("VisualShaderNodeIf_5o1ms")
+nodes/vertex/4/position = Vector2(701.2186, 315.61826)
+nodes/vertex/5/node = SubResource("VisualShaderNodeInput_5p2td")
+nodes/vertex/5/position = Vector2(384, 608)
+nodes/vertex/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 2, 5, 0, 4, 4, 5, 0, 4, 5)

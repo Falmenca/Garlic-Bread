@@ -21,13 +21,16 @@ zoom = Vector2(0.2, 0.2)
 position = Vector2(6357, -1880)
 collision_layer = 2
 speed = 400
+MoveAttack = false
 
 [node name="slime2" parent="." unique_id=109107600 instance=ExtResource("3_4k50d")]
 position = Vector2(6518, 1350)
 collision_layer = 2
 speed = 400
+MoveAttack = false
 
 [node name="slime3" parent="." unique_id=569323319 instance=ExtResource("3_4k50d")]
 position = Vector2(7499, -127)
 collision_layer = 2
 speed = 400
+MoveAttack = false
