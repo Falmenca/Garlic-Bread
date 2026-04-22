@@ -1,24 +1,16 @@
-[gd_scene format=3 uid="uid://d2ukcxle2ssa8"]
+[gd_scene format=3 uid="uid://bkoag1up2hdio"]
 
 [ext_resource type="Script" uid="uid://cq83tgi1edkvf" path="res://Scripts/Utilities/Pause.gd" id="1_b0aok"]
 [ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_uft1l"]
 
-[node name="PauseMenu" type="Control" unique_id=452110955]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Pause" type="CanvasLayer" unique_id=1317229918]
 script = ExtResource("1_b0aok")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1698599448]
-layout_mode = 0
+[node name="Background" type="TextureRect" parent="." unique_id=873948921]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Title" type="RichTextLabel" parent="Background" unique_id=773433097]
+[node name="Title" type="RichTextLabel" parent="Background" unique_id=1102061]
 layout_mode = 0
 offset_top = 400.0
 offset_right = 1920.0
@@ -29,12 +21,12 @@ text = "[tornado radius=2 freq=2][color=\"red\"]Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MenuOptions" type="ItemList" parent="Background" unique_id=512145259]
+[node name="MenuOptions" type="ItemList" parent="Background" unique_id=2027800876]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Continue" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1436036911]
+[node name="Continue" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1888805658]
 layout_mode = 0
 offset_top = 600.0
 offset_right = 1920.0
@@ -47,7 +39,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Continue = ""
 
-[node name="Settings" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1505547760]
+[node name="Settings" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1818476291]
 layout_mode = 0
 offset_top = 695.0
 offset_right = 1920.0
@@ -60,7 +52,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Settings = ""
 
-[node name="Main_Menu" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1568080364]
+[node name="Main_Menu" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1178417986]
 layout_mode = 0
 offset_top = 790.0
 offset_right = 1920.0
@@ -73,7 +65,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Main_Menu = ""
 
-[node name="Quit" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1529228334]
+[node name="Quit" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1330059799]
 layout_mode = 0
 offset_top = 885.0
 offset_right = 1920.0
@@ -86,7 +78,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Quit = ""
 
-[node name="ArrowSelector" type="Sprite2D" parent="Background/MenuOptions" unique_id=1605531613]
+[node name="ArrowSelector" type="Sprite2D" parent="Background/MenuOptions" unique_id=1732086708]
 position = Vector2(820, 610)
 rotation = 1.5707964
 texture = ExtResource("2_uft1l")

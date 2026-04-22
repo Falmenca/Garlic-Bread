@@ -7,27 +7,21 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkhfw"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Main" type="Control" unique_id=452110955]
-process_mode = 1
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Main" type="CanvasLayer" unique_id=946496449]
 script = ExtResource("1_rast2")
 
-[node name="Menus" type="Control" parent="." unique_id=1538758790]
+[node name="Menus" type="Control" parent="." unique_id=1662393599]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Game Title" type="Control" parent="Menus" unique_id=1763544175]
+[node name="Game Title" type="Control" parent="Menus" unique_id=1940010227]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Title" type="RichTextLabel" parent="Menus/Game Title" unique_id=773433097]
+[node name="Title" type="RichTextLabel" parent="Menus/Game Title" unique_id=1093351455]
 layout_mode = 0
 offset_top = 400.0
 offset_right = 1920.0
@@ -38,18 +32,18 @@ text = "[tornado radius=2 freq=2][color=\"red\"]Garlic Bread"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenuScreen" type="TextureRect" parent="Menus" unique_id=1698599448]
+[node name="MainMenuScreen" type="TextureRect" parent="Menus" unique_id=2079056954]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MenuOptions" type="ItemList" parent="Menus/MainMenuScreen" unique_id=512145259]
+[node name="MenuOptions" type="ItemList" parent="Menus/MainMenuScreen" unique_id=1233548361]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dkhfw")
 
-[node name="Play" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=1436036911]
+[node name="Play" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=891397844]
 layout_mode = 0
 offset_top = 600.0
 offset_right = 1920.0
@@ -62,7 +56,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Play = ""
 
-[node name="Settings" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=1505547760]
+[node name="Settings" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=360612296]
 layout_mode = 0
 offset_top = 695.0
 offset_right = 1920.0
@@ -75,7 +69,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Settings = ""
 
-[node name="Credits" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=1568080364]
+[node name="Credits" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=1592583051]
 layout_mode = 0
 offset_top = 790.0
 offset_right = 1920.0
@@ -88,7 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Credits = ""
 
-[node name="Quit" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=1529228334]
+[node name="Quit" type="RichTextLabel" parent="Menus/MainMenuScreen/MenuOptions" unique_id=427814333]
 layout_mode = 0
 offset_top = 885.0
 offset_right = 1920.0
@@ -101,23 +95,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/Quit = ""
 
-[node name="ArrowSelector" type="Sprite2D" parent="Menus/MainMenuScreen/MenuOptions" unique_id=1605531613]
+[node name="ArrowSelector" type="Sprite2D" parent="Menus/MainMenuScreen/MenuOptions" unique_id=649094330]
 position = Vector2(820, 610)
 rotation = 1.5707964
 texture = ExtResource("2_eijfr")
 
-[node name="SettingsMenu" parent="Menus" unique_id=667081371 instance=ExtResource("3_w22lo")]
+[node name="SettingsMenu" parent="Menus" unique_id=1600310553 instance=ExtResource("3_w22lo")]
 visible = false
-z_index = 50
-z_as_relative = false
-layout_mode = 1
 
-[node name="PressAnyButton" type="Control" parent="Menus" unique_id=1083597454]
+[node name="PressAnyButton" type="Control" parent="Menus" unique_id=1783222525]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Text" type="RichTextLabel" parent="Menus/PressAnyButton" unique_id=1907644338]
+[node name="Text" type="RichTextLabel" parent="Menus/PressAnyButton" unique_id=1670390791]
 layout_mode = 0
 offset_top = 600.0
 offset_right = 1920.0

@@ -2,21 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cegs547vv4mkr" path="res://Pages/Credits/Credits.gd" id="1_lhmol"]
 
-[node name="Credits" type="Control" unique_id=227889181]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Credits" type="CanvasLayer" unique_id=2007695009]
 script = ExtResource("1_lhmol")
 
-[node name="Background" type="TextureRect" parent="." unique_id=2043518960]
-layout_mode = 0
+[node name="Background" type="TextureRect" parent="." unique_id=950449450]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PressAnyButton" type="RichTextLabel" parent="Background" unique_id=840937153]
+[node name="PressAnyButton" type="RichTextLabel" parent="Background" unique_id=1190974360]
 layout_mode = 0
 offset_top = 1000.0
 offset_right = 1920.0
@@ -27,7 +20,7 @@ text = "[pulse freq=1.0 color=#ffffff40 ease=-2.0]Press Any Key To Go Back To Me
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Main" type="RichTextLabel" parent="Background" unique_id=168234098]
+[node name="Main" type="RichTextLabel" parent="Background" unique_id=2078731233]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 100.0

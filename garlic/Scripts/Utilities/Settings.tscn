@@ -3,26 +3,18 @@
 [ext_resource type="Script" uid="uid://ddijfhrmu4roa" path="res://Scripts/Utilities/Settings.gd" id="1_3blog"]
 [ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_0vtga"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1m4l"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf3m1"]
 bg_color = Color(0.16, 0.16, 0.16, 0.88235295)
 
-[node name="SettingsMenu" type="Control" unique_id=452110955]
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Settings" type="CanvasLayer" unique_id=1600310553]
 script = ExtResource("1_3blog")
 
-[node name="MenuOptions" type="ItemList" parent="." unique_id=512145259]
-layout_mode = 0
+[node name="MenuOptions" type="ItemList" parent="." unique_id=456962281]
 offset_right = 1920.0
 offset_bottom = 1080.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_u1m4l")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yf3m1")
 
-[node name="Title" type="RichTextLabel" parent="MenuOptions" unique_id=773433097]
+[node name="Title" type="RichTextLabel" parent="MenuOptions" unique_id=2141413143]
 layout_mode = 0
 offset_top = 200.0
 offset_right = 1920.0
@@ -33,7 +25,7 @@ text = "[tornado radius=2 freq=2][color=\"red\"]Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FPS_Counter" type="RichTextLabel" parent="MenuOptions" unique_id=1436036911]
+[node name="FPS_Counter" type="RichTextLabel" parent="MenuOptions" unique_id=35141927]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 400.0
@@ -46,7 +38,7 @@ fit_content = true
 vertical_alignment = 1
 metadata/FPS_Toggle = ""
 
-[node name="Volume" type="RichTextLabel" parent="MenuOptions" unique_id=1505547760]
+[node name="Volume" type="RichTextLabel" parent="MenuOptions" unique_id=1727535631]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 500.0
@@ -59,7 +51,7 @@ fit_content = true
 vertical_alignment = 1
 metadata/Volume = ""
 
-[node name="Screen" type="RichTextLabel" parent="MenuOptions" unique_id=1568080364]
+[node name="Screen" type="RichTextLabel" parent="MenuOptions" unique_id=2105801174]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 600.0
@@ -72,7 +64,7 @@ fit_content = true
 vertical_alignment = 1
 metadata/Screen = ""
 
-[node name="Back" type="RichTextLabel" parent="MenuOptions" unique_id=1529228334]
+[node name="Back" type="RichTextLabel" parent="MenuOptions" unique_id=1842171240]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 700.0
@@ -85,7 +77,7 @@ fit_content = true
 vertical_alignment = 1
 metadata/Back = ""
 
-[node name="ArrowSelector" type="Sprite2D" parent="MenuOptions" unique_id=1543135784]
+[node name="ArrowSelector" type="Sprite2D" parent="MenuOptions" unique_id=1749000582]
 position = Vector2(450, 413)
 rotation = 1.5707964
 texture = ExtResource("2_0vtga")

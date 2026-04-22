@@ -1,4 +1,4 @@
-extends Node
+extends CanvasLayer
 
 @onready var main_text = $Background/Main
 @onready var press_any_button = $Background/PressAnyButton
