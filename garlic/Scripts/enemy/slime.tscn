@@ -133,6 +133,7 @@ autostart = true
 [node name="RotationOffset" type="Node2D" parent="." unique_id=152970677]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=118779749]
+scale = Vector2(0.67, 0.67)
 sprite_frames = SubResource("SpriteFrames_sxwx3")
 autoplay = "default"
 frame_progress = 0.2781079
@@ -142,8 +143,8 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationOffset/Hitbox" unique_id=617826747]
-position = Vector2(33, 157.99998)
-scale = Vector2(28.291126, 25.689898)
+position = Vector2(21, 117.000015)
+scale = Vector2(23.301, 21.159)
 shape = SubResource("CircleShape2D_sxwx3")
 disabled = true
 debug_color = Color(0.9597656, 0.046804205, 0.49611515, 0.41960785)
@@ -155,8 +156,8 @@ script = ExtResource("4_5xwky")
 metadata/_custom_type_script = "uid://6br7gglc03eq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationOffset/Hurtbox" unique_id=1596572283]
-position = Vector2(30, 161)
-scale = Vector2(25.80607, 23.68635)
+position = Vector2(20.000002, 122.000015)
+scale = Vector2(18.403, 16.891)
 shape = SubResource("CircleShape2D_s67yt")
 debug_color = Color(0.5904864, 0.5474075, 0.055359527, 0.41960785)
 
