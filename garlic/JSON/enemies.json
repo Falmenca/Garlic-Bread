@@ -1,8 +1,0 @@
-{
-	"example_enemy": {
-		"image": "Assets/Enemies/temp.png",
-		"health": 10,
-		"speed": 1,
-		"damage": 1
-	}
-}

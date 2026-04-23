@@ -1,4 +1,5 @@
 .DS_Store
+*.tmp
 # Godot 4+ specific ignores
 .godot/
 .nomedia
@@ -15,3 +16,4 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
