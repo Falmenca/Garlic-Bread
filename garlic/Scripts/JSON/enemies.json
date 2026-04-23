@@ -1,0 +1,14 @@
+{
+	"example_enemy": {
+		"image": "none.png",
+		"health": 10,
+		"speed": 1,
+		"damage": 1
+	},
+	"slime": {
+		"image": "slimepng.png",
+		"health": 10,
+		"speed": 1,
+		"damage": 1
+	}
+}

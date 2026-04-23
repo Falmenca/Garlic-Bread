@@ -1,74 +1,20 @@
 [gd_scene format=3 uid="uid://dlgexqpnls33n"]
 
-[ext_resource type="Texture2D" uid="uid://bwr1eaupg3mxo" path="res://Assets/Player/2d/run/run-1.png" id="2_3i7jw"]
-[ext_resource type="Script" uid="uid://bor1lopj4m2ka" path="res://Scripts/Player/Player.gd" id="2_8230u"]
-[ext_resource type="Texture2D" uid="uid://lmx4aj6w7xc2" path="res://Assets/Player/2d/run/run-2.png" id="3_l27a8"]
-[ext_resource type="Texture2D" uid="uid://ct7h6vv0kyy7a" path="res://Assets/Player/2d/run/run-3.png" id="4_48qom"]
-[ext_resource type="Texture2D" uid="uid://bnl477gm2qa5l" path="res://Assets/Player/2d/run/run-4.png" id="5_d4owo"]
-[ext_resource type="Texture2D" uid="uid://bj1c5tkpyjiqp" path="res://Assets/Player/2d/run/run-5.png" id="6_ojreo"]
-[ext_resource type="Texture2D" uid="uid://dysajvi1j1df6" path="res://Assets/Player/2d/run/run-6.png" id="7_k7ysd"]
-[ext_resource type="Texture2D" uid="uid://bvn8ud2514fle" path="res://Assets/Player/2d/run/run-7.png" id="8_n8pw0"]
-[ext_resource type="Texture2D" uid="uid://ioq6ukdnw4u5" path="res://Assets/Player/2d/run/run-8.png" id="9_nbtvi"]
-[ext_resource type="PackedScene" uid="uid://d2ukcxle2ssa8" path="res://Pages/Utility/Pause_Menu.tscn" id="10_l27a8"]
-[ext_resource type="Script" uid="uid://dca3xtt2haijm" path="res://Scripts/Enemy/EnemySpawner.gd" id="11_48qom"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ytrmd"]
-resource_local_to_scene = true
-resource_name = "run"
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_3i7jw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_l27a8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_48qom")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_d4owo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_ojreo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_k7ysd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_n8pw0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_nbtvi")
-}],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i7jw"]
-size = Vector2(72.5, 68.5)
+[ext_resource type="PackedScene" uid="uid://dwcp4mrk143jq" path="res://Scripts/Player/goregirl.tscn" id="1_48qom"]
+[ext_resource type="PackedScene" uid="uid://bkoag1up2hdio" path="res://Scripts/Utilities/Pause.tscn" id="10_l27a8"]
+[ext_resource type="Script" uid="uid://dca3xtt2haijm" path="res://Scripts/enemy/enemySpawner.gd" id="11_48qom"]
 
 [node name="Level1" type="Node2D" unique_id=810896735]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1571596404 groups=["player"]]
-disable_mode = 2
-script = ExtResource("2_8230u")
+[node name="Goregirl" parent="." unique_id=435559364 instance=ExtResource("1_48qom")]
+scale = Vector2(0.5, 0.5)
+motion_mode = 0
+speed = 800
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1371549232]
-position = Vector2(0, 1)
-sprite_frames = SubResource("SpriteFrames_ytrmd")
-animation = &"run"
-frame_progress = 0.4572867
+[node name="Camera2D" type="Camera2D" parent="Goregirl" unique_id=1598699912]
+zoom = Vector2(0.2, 0.2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1327011017]
-shape = SubResource("RectangleShape2D_3i7jw")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1396201891]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1886375083]
-
-[node name="PauseMenu" parent="CanvasLayer" unique_id=452110955 instance=ExtResource("10_l27a8")]
+[node name="PauseMenu" parent="." unique_id=452110955 instance=ExtResource("10_l27a8")]
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=223161783]
 script = ExtResource("11_48qom")

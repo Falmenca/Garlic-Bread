@@ -5,31 +5,43 @@
 
 extends Node
 
-const SPAWN_RADIUS = 500
+const SPAWN_RADIUS = 1200
 
-@onready var file = FileAccess.open("res://JSON/enemies.json", FileAccess.READ)
-@onready var enemies = JSON.parse_string(file.get_as_text())
-@onready var player = get_tree().get_first_node_in_group("player")
-@onready var enemy_blueprint = preload("res://Scripts/Enemy/enemy.tscn")
+var file
+var enemies
+var player
+@onready var enemy_blueprint = preload("res://Scripts/Enemy/slime.tscn")
 @onready var enemy_instance
 
-func spawn_enemy(type: String) -> void:
-	## Spawns an enemy of set type around the player
-	var spawn_angle = randf_range(0, TAU)
-	var x_pos = player.position.x+cos(spawn_angle)*SPAWN_RADIUS
-	var y_pos = player.position.y+sin(spawn_angle)*SPAWN_RADIUS
-	var enemy_pos: Vector2 = Vector2(x_pos, y_pos)
-	enemy_instance = enemy_blueprint.instantiate()
-	var sprite = enemy_instance.get_node("Sprite2D")
-	sprite.texture = load("res://" + enemies[type]["image"])
-	for stat in enemies[type]:
-		if(stat!="image"):
-			enemy_instance.stats[stat]=enemies[type][stat]
-	add_child(enemy_instance)
-	enemy_instance.set_position(enemy_pos)
-
 func _ready() -> void:
-	pass
+	file = FileAccess.open("res://Scripts/JSON/enemies.json", FileAccess.READ)
+	enemies = JSON.parse_string(file.get_as_text())
+	player = Global.player
 
-func _process(delta: float) -> void:
-	spawn_enemy("example_enemy")
+func _physics_process(delta: float) -> void:
+	#temp, spawn 20 enemies at most, put timer logic here later
+	if get_tree().get_nodes_in_group("enemies").size() <= 1:
+		spawn_enemy("slime", rand_around_x(player.position, SPAWN_RADIUS))
+	else:
+		pass
+
+
+func rand_around_x(from_position: Vector2, distance: int):
+	##Returns a position a distance away from a set position at a random angle
+	var spawn_angle = randf_range(0, TAU)
+	var x_pos = from_position.x+cos(spawn_angle)*distance
+	var y_pos = from_position.y+sin(spawn_angle)*distance
+	return Vector2(x_pos, y_pos)
+
+func spawn_enemy(type: String, spawn_position: Vector2) -> void:
+	## Spawns an enemy of set type at set location
+	#Create a new enemy node
+	enemy_instance = enemy_blueprint.instantiate()
+	#Give the node an animation/sprite
+	var sprite = enemy_instance.get_node("RotationOffset/AnimatedSprite2D")
+	var frames = SpriteFrames.new()
+	#Resize and give it stats
+	enemy_instance.add_to_group("enemies")
+	enemy_instance.set_position(spawn_position)
+	#Spawn
+	add_child(enemy_instance)

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://6k2gaillbecc"]
+
+[ext_resource type="Script" uid="uid://c07781yy5x4wp" path="res://Scripts/Attacks/whipp.gd" id="1_06tix"]
+[ext_resource type="Texture2D" uid="uid://p5cjegt5l2sq" path="res://Assets/Attacks/whipp.png" id="2_lxndb"]
+[ext_resource type="Script" uid="uid://dwed140n0wta7" path="res://Scripts/hitbox.gd" id="3_e1sox"]
+
+[sub_resource type="Animation" id="Animation_y8koj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4vw8b"]
+resource_name = "attack"
+length = 0.73333335
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c6dku"]
+_data = {
+&"RESET": SubResource("Animation_y8koj"),
+&"attack": SubResource("Animation_4vw8b")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vw8b"]
+radius = 9.0
+height = 68.0
+
+[node name="Node2D" type="Node2D" unique_id=630828983]
+scale = Vector2(10, 10)
+script = ExtResource("1_06tix")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2106029497]
+position = Vector2(32, 0)
+texture = ExtResource("2_lxndb")
+hframes = 3
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=2144842988]
+libraries/ = SubResource("AnimationLibrary_c6dku")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2030712854]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("3_e1sox")
+damage = 50
+metadata/_custom_type_script = "uid://dwed140n0wta7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1652881103]
+position = Vector2(34, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4vw8b")
