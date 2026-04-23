@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bh5hk7opd7nr0" path="res://Assets/Enemy/goreslime.png" id="3_sxwx3"]
 [ext_resource type="Script" uid="uid://6br7gglc03eq" path="res://Scripts/hurtbox.gd" id="4_5xwky"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7j2ha"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5xwky"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s67yt"]
 resource_local_to_scene = true
 shader = ExtResource("1_s67yt")
-shader_parameter/enabled = false
+shader_parameter/Enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5xwky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s67yt"]
 atlas = ExtResource("3_sxwx3")
@@ -41,8 +41,6 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxwx3"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s67yt"]
 
 [sub_resource type="Animation" id="Animation_5xwky"]
 length = 0.001
@@ -86,7 +84,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/enabled")
+tracks/0/path = NodePath("RotationOffset/AnimatedSprite2D:material:shader_parameter/Enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +100,7 @@ length = 0.22
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/enabled")
+tracks/0/path = NodePath("RotationOffset/AnimatedSprite2D:material:shader_parameter/Enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -118,8 +116,9 @@ _data = {
 &"hitflash": SubResource("Animation_7j2ha")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s67yt"]
+
 [node name="slime" type="CharacterBody2D" unique_id=655848703]
-material = SubResource("ShaderMaterial_7j2ha")
 motion_mode = 1
 script = ExtResource("1_s5nnf")
 
@@ -133,33 +132,25 @@ autostart = true
 [node name="RotationOffset" type="Node2D" parent="." unique_id=152970677]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=118779749]
+material = SubResource("ShaderMaterial_s67yt")
+position = Vector2(-27, -81)
 scale = Vector2(0.67, 0.67)
 sprite_frames = SubResource("SpriteFrames_sxwx3")
 autoplay = "default"
 frame_progress = 0.2781079
 
 [node name="Hitbox" parent="RotationOffset" unique_id=1750913249 instance=ExtResource("3_aux67")]
+visible = false
+position = Vector2(-22, -82)
 collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RotationOffset/Hitbox" unique_id=617826747]
-position = Vector2(21, 117.000015)
+position = Vector2(24, 119)
 scale = Vector2(23.301, 21.159)
 shape = SubResource("CircleShape2D_sxwx3")
 disabled = true
 debug_color = Color(0.9597656, 0.046804205, 0.49611515, 0.41960785)
-
-[node name="Hurtbox" type="Area2D" parent="RotationOffset" unique_id=126441938]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("4_5xwky")
-metadata/_custom_type_script = "uid://6br7gglc03eq"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationOffset/Hurtbox" unique_id=1596572283]
-position = Vector2(20.000002, 122.000015)
-scale = Vector2(18.403, 16.891)
-shape = SubResource("CircleShape2D_s67yt")
-debug_color = Color(0.5904864, 0.5474075, 0.055359527, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=977567907]
 libraries/ = SubResource("AnimationLibrary_s67yt")
@@ -167,5 +158,21 @@ libraries/ = SubResource("AnimationLibrary_s67yt")
 [node name="ShaderPlayer" type="AnimationPlayer" parent="." unique_id=869612453]
 libraries/ = SubResource("AnimationLibrary_b3x35")
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=126441938]
+visible = false
+position = Vector2(-21, -86)
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("4_5xwky")
+metadata/_custom_type_script = "uid://6br7gglc03eq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1596572283]
+position = Vector2(20.000002, 122.000015)
+scale = Vector2(18.403, 16.891)
+shape = SubResource("CircleShape2D_s67yt")
+debug_color = Color(0.5904864, 0.5474075, 0.055359527, 0.41960785)
+
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_hurtbox_area_entered"]

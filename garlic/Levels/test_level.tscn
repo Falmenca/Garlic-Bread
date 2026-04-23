@@ -3,6 +3,25 @@
 [ext_resource type="Texture2D" uid="uid://l102xsjl07ao" path="res://Assets/6MG0aX.png" id="1_ormqy"]
 [ext_resource type="PackedScene" uid="uid://dwcp4mrk143jq" path="res://Scripts/Player/goregirl.tscn" id="2_00vsl"]
 [ext_resource type="PackedScene" uid="uid://5gtqhauko45y" path="res://Scripts/enemy/slime.tscn" id="3_4k50d"]
+[ext_resource type="Shader" uid="uid://btqdlnrsu0iku" path="res://Shader/hitflash.tres" id="4_i4ak4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4ak4"]
+resource_local_to_scene = true
+shader = ExtResource("4_i4ak4")
+shader_parameter/Enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3158n"]
+resource_local_to_scene = true
+shader = ExtResource("4_i4ak4")
+shader_parameter/Enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ub4j8"]
+resource_local_to_scene = true
+shader = ExtResource("4_i4ak4")
+shader_parameter/Enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [node name="Test level" type="Node" unique_id=2069793797]
 
@@ -18,18 +37,21 @@ speed = 800
 zoom = Vector2(0.2, 0.2)
 
 [node name="slime" parent="." unique_id=655848703 instance=ExtResource("3_4k50d")]
+material = SubResource("ShaderMaterial_i4ak4")
 position = Vector2(6357, -1880)
 collision_layer = 2
 speed = 400
 MoveAttack = false
 
 [node name="slime2" parent="." unique_id=109107600 instance=ExtResource("3_4k50d")]
+material = SubResource("ShaderMaterial_3158n")
 position = Vector2(6518, 1350)
 collision_layer = 2
 speed = 400
 MoveAttack = false
 
 [node name="slime3" parent="." unique_id=569323319 instance=ExtResource("3_4k50d")]
+material = SubResource("ShaderMaterial_ub4j8")
 position = Vector2(7499, -127)
 collision_layer = 2
 speed = 400

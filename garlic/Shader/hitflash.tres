@@ -5,27 +5,31 @@ output_port_for_preview = 0
 parameter_name = "tint"
 default_value_enabled = true
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_cjcws"]
-parameter_name = "enabled"
-default_value_enabled = true
-
-[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_5o1ms"]
+[sub_resource type="VisualShaderNodeIf" id="VisualShaderNodeIf_cjcws"]
+output_port_for_preview = 0
 default_input_values = [0, 0.0, 1, 1.0, 2, 1e-05, 3, Vector3(0, 0, 0), 4, Vector3(0, 0, 0), 5, Vector3(0, 0, 0)]
 
-[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5p2td"]
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_5o1ms"]
+output_port_for_preview = 0
 input_name = "color"
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_5p2td"]
+output_port_for_preview = 0
+parameter_name = "Enabled"
+default_value_enabled = true
 
 [resource]
 mode = 1
 flags/light_only = false
-preview_params/enabled = "false"
-nodes/vertex/0/position = Vector2(928, 272)
-nodes/vertex/2/node = SubResource("VisualShaderNodeColorParameter_cvfgw")
-nodes/vertex/2/position = Vector2(122.4, 166)
-nodes/vertex/3/node = SubResource("VisualShaderNodeBooleanParameter_cjcws")
-nodes/vertex/3/position = Vector2(384, 400)
-nodes/vertex/4/node = SubResource("VisualShaderNodeIf_5o1ms")
-nodes/vertex/4/position = Vector2(701.2186, 315.61826)
-nodes/vertex/5/node = SubResource("VisualShaderNodeInput_5p2td")
-nodes/vertex/5/position = Vector2(384, 608)
-nodes/vertex/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 3, 4, 0, 0, 2, 5, 0, 4, 4, 5, 0, 4, 5)
+preview_params/Enabled = "true"
+nodes/vertex/0/position = Vector2(480, 224)
+nodes/fragment/0/position = Vector2(880, 224)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_cvfgw")
+nodes/fragment/2/position = Vector2(16, 304)
+nodes/fragment/3/node = SubResource("VisualShaderNodeIf_cjcws")
+nodes/fragment/3/position = Vector2(608, 256)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_5o1ms")
+nodes/fragment/4/position = Vector2(96, 528)
+nodes/fragment/5/node = SubResource("VisualShaderNodeBooleanParameter_5p2td")
+nodes/fragment/5/position = Vector2(256, 160)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 3, 4, 0, 3, 4, 4, 0, 3, 5, 5, 0, 3, 0, 3, 0, 0, 0)

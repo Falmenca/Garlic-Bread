@@ -40,6 +40,7 @@ collision_mask = 4
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" unique_id=1409551555]
 scale = Vector2(16.735706, -25.749859)
 shape = SubResource("CapsuleShape2D_7vfvk")
+disabled = true
 debug_color = Color(0.34548637, 0.61409646, 0.26480636, 0.41960785)
 
 [node name="AttackSpawner" type="Node2D" parent="." unique_id=1474298817]
