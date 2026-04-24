@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dcffge70pi07v"]
+
+[ext_resource type="Script" uid="uid://bc207j70iuffi" path="res://Scripts/Attacks/poison.gd" id="1_oerb4"]
+[ext_resource type="Texture2D" uid="uid://dh3ond7yesgji" path="res://Assets/Attacks/poison.png" id="2_1vo6e"]
+
+[node name="Poison" type="Node2D" unique_id=364699681]
+script = ExtResource("1_oerb4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1846849413]
+scale = Vector2(2, 2)
+texture = ExtResource("2_1vo6e")

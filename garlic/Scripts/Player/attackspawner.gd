@@ -1,6 +1,9 @@
 extends Node2D
 var attacks: Dictionary[String, PackedScene] = {
 	"whipp": preload("res://Scripts/Attacks/whipp.tscn"),
+	"poison": preload("res://Scripts/Attacks/poison.tscn"),
+	"orbital": preload("res://Scripts/Attacks/orbital.tscn"),
+	"grab": preload("res://Scripts/Attacks/grab.tscn")
 }
 
 func _ready() -> void:
@@ -9,7 +12,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#if(get_tree().get_nodes_in_group("enemies")):
 		for attack in attacks:
-			if not get_tree().get_first_node_in_group("attacks"): #replace with attack timer
+			if not get_tree().get_first_node_in_group(attack): #replace with attack timer
 				spawn_attack(attacks[attack], attack)
 
 
