@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dckmwh6odqtd6" path="res://Scripts/enemy/slime.gd" id="1_s5nnf"]
 [ext_resource type="Shader" uid="uid://btqdlnrsu0iku" path="res://Shader/hitflash.tres" id="1_s67yt"]
 [ext_resource type="Texture2D" uid="uid://csjyfioy2hfc8" path="res://Assets/Enemy/slimepng.png" id="2_aux67"]
+[ext_resource type="Texture2D" uid="uid://cfe4aj56iucqs" path="res://Assets/Enemy/goreslime spritesheet.png" id="3_7j2ha"]
 [ext_resource type="PackedScene" uid="uid://chogew3hbqn0l" path="res://Scripts/hitbox.tscn" id="3_aux67"]
 [ext_resource type="Texture2D" uid="uid://bh5hk7opd7nr0" path="res://Assets/Enemy/goreslime.png" id="3_sxwx3"]
 [ext_resource type="Script" uid="uid://6br7gglc03eq" path="res://Scripts/hurtbox.gd" id="4_5xwky"]
@@ -15,6 +16,42 @@ shader = ExtResource("1_s67yt")
 shader_parameter/Enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3x35"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(0, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s424m"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(744, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tlnk"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(1488, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dlgk"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(0, 744, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmc45"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(744, 744, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umnux"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(1488, 744, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtoth"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(0, 1488, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nf1lg"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(744, 1488, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyo1s"]
+atlas = ExtResource("3_7j2ha")
+region = Rect2(1488, 1488, 744, 744)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_s67yt"]
 atlas = ExtResource("3_sxwx3")
 region = Rect2(0, 0, 744, 744)
@@ -25,6 +62,38 @@ region = Rect2(0, 744, 744, 744)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sxwx3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3x35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s424m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tlnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dlgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmc45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umnux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtoth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nf1lg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyo1s")
+}],
+"loop": false,
+"name": &"death",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_aux67")
@@ -56,6 +125,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotationOffset/AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RotationOffset/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_sxwx3"]
 resource_name = "attack"
@@ -73,10 +166,54 @@ tracks/0/keys = {
 "values": [false, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_lfe32"]
+resource_name = "death"
+length = 0.75000834
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotationOffset/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RotationOffset/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s67yt"]
 _data = {
 &"RESET": SubResource("Animation_5xwky"),
-&"attack": SubResource("Animation_sxwx3")
+&"attack": SubResource("Animation_sxwx3"),
+&"death": SubResource("Animation_lfe32")
 }
 
 [sub_resource type="Animation" id="Animation_s67yt"]
@@ -136,8 +273,8 @@ material = SubResource("ShaderMaterial_s67yt")
 position = Vector2(-27, -81)
 scale = Vector2(0.67, 0.67)
 sprite_frames = SubResource("SpriteFrames_sxwx3")
+animation = &"death"
 autoplay = "default"
-frame_progress = 0.2781079
 
 [node name="Hitbox" parent="RotationOffset" unique_id=1750913249 instance=ExtResource("3_aux67")]
 visible = false

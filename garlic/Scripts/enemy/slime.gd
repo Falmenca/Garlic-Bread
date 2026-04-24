@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _death():
-	queue_free()
+	anim.play("death")
 	#dies
 
 func _chase(): # behavior to unstick enemies' balls from each other
