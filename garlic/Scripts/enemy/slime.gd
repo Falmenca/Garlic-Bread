@@ -16,6 +16,9 @@ var ChaseDist = 400
 var AttackRange = 400
 var player 
 
+var knockback : Vector2 = Vector2.ZERO
+var knockback_timer : float
+
 func _ready():
 	player = Global.player
 	print(player)
@@ -32,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			Attacking = true
 			anim.play("attack")
 	
+	knockback_physics(delta)
 
 	move_and_slide()
 
@@ -65,3 +69,15 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func faggot_print():
 	print("faggot")
+
+func take_knockback(direction : Vector2,force : float, knockback_duration : float,):
+	knockback = direction * force
+	knockback_timer = knockback_duration
+
+func knockback_physics(delta) :
+	if knockback_timer > 0:
+		pass
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer < 0:
+			knockback = Vector2.ZERO

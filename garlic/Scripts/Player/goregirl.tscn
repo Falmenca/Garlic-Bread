@@ -5,6 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bdrc50ve4q5d8" path="res://Scripts/hurtbox.tscn" id="3_7vfvk"]
 [ext_resource type="Script" uid="uid://3ydraraalisp" path="res://Scripts/Player/attackspawner.gd" id="4_rx7wt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vfvk"]
+size = Vector2(10.121148, 15.781589)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vfvk"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ekb72"]
 animations = [{
 "frames": [{
@@ -16,17 +21,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vfvk"]
-size = Vector2(10.121148, 15.781589)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7vfvk"]
-
 [node name="Goregirl" type="CharacterBody2D" unique_id=435559364]
 motion_mode = 1
 script = ExtResource("1_ekb72")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1249122016]
-sprite_frames = SubResource("SpriteFrames_ekb72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320028704]
 position = Vector2(-3.9999924, 10.380289)
@@ -43,5 +40,10 @@ shape = SubResource("CapsuleShape2D_7vfvk")
 disabled = true
 debug_color = Color(0.34548637, 0.61409646, 0.26480636, 0.41960785)
 
-[node name="AttackSpawner" type="Node2D" parent="." unique_id=1474298817]
+[node name="RotationOffset" type="Node2D" parent="." unique_id=61241109]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=1249122016]
+sprite_frames = SubResource("SpriteFrames_ekb72")
+
+[node name="AttackSpawner" type="Node2D" parent="RotationOffset" unique_id=1474298817]
 script = ExtResource("4_rx7wt")

@@ -40,6 +40,7 @@ zoom = Vector2(0.2, 0.2)
 material = SubResource("ShaderMaterial_i4ak4")
 position = Vector2(6357, -1880)
 collision_layer = 2
+health = 400
 speed = 400
 MoveAttack = false
 
@@ -47,6 +48,7 @@ MoveAttack = false
 material = SubResource("ShaderMaterial_3158n")
 position = Vector2(6518, 1350)
 collision_layer = 2
+health = 400
 speed = 400
 MoveAttack = false
 
@@ -54,5 +56,6 @@ MoveAttack = false
 material = SubResource("ShaderMaterial_ub4j8")
 position = Vector2(7499, -127)
 collision_layer = 2
+health = 400
 speed = 400
 MoveAttack = false
