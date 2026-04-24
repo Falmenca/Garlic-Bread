@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://jm6w50eos7nb"]
+
+[ext_resource type="Script" uid="uid://ct6nnhc7j05j4" path="res://Scripts/Attacks/orbital.gd" id="1_n8530"]
+[ext_resource type="Texture2D" uid="uid://c86j0jxi8sv7b" path="res://Assets/Enemy/goreslime spritesheet.png" id="2_3qh5d"]
+
+[node name="Orbital" type="Node2D" unique_id=506878377]
+script = ExtResource("1_n8530")
+
+[node name="Orb" type="Node2D" parent="." unique_id=1723026768]
+
+[node name="GoreslimeSpritesheet" type="Sprite2D" parent="Orb" unique_id=1778417521]
+position = Vector2(-53, -258)
+texture = ExtResource("2_3qh5d")
+hframes = 3
+vframes = 3
+frame = 4
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=270903516]
