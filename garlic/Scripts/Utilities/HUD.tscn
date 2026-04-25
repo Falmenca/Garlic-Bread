@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dobf77s6htlok"]
+
+[ext_resource type="Texture2D" uid="uid://b4crtj4c0w1y0" path="res://Assets/HUD/Player_Icon_Container.png" id="1_d7hjt"]
+[ext_resource type="Texture2D" uid="uid://buedcw8femeyr" path="res://Assets/HUD/goregirl_icon.png" id="2_kioff"]
+
+[node name="Hud" type="CanvasLayer" unique_id=1496816957]
+
+[node name="PlayerStats" type="Control" parent="." unique_id=1550447480]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Name" type="RichTextLabel" parent="PlayerStats" unique_id=289594368]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 30.0
+offset_right = 440.0
+offset_bottom = 60.0
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[tornado radius=1 freq=1][color=\"red\"]Player Name"
+
+[node name="PlayerIconBg" type="TextureRect" parent="PlayerStats" unique_id=1497056113]
+clip_contents = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 200.0
+offset_bottom = 200.0
+texture = ExtResource("1_d7hjt")
+
+[node name="TextureRect" type="TextureRect" parent="PlayerStats/PlayerIconBg" unique_id=551994111]
+z_index = -2
+layout_mode = 0
+offset_left = 17.0
+offset_top = 27.0
+offset_right = 154.0
+offset_bottom = 146.0
+texture = ExtResource("2_kioff")
+
+[node name="Items_Inventory" type="Control" parent="." unique_id=1947670693]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Items_Active" type="Control" parent="." unique_id=2083637129]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
