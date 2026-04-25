@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cg4vxrum1n1sa"]
+[gd_scene format=3 uid="uid://caehi24tv1a2n"]
 
 [ext_resource type="Script" uid="uid://8ri3rj1f084y" path="res://Scripts/Attacks/drill.gd" id="1_14vxl"]
 [ext_resource type="Texture2D" uid="uid://dq3xf6orsh8fh" path="res://Assets/Attacks/drill.png" id="2_p2ao2"]
@@ -94,6 +94,7 @@ _data = {
 script = ExtResource("1_14vxl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=460184475]
+rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_14wns")
 autoplay = "default"
 frame_progress = 0.05945779
@@ -102,6 +103,7 @@ frame_progress = 0.05945779
 libraries/ = SubResource("AnimationLibrary_acpf2")
 
 [node name="Hitbox" parent="." unique_id=1750913249 instance=ExtResource("3_164oy")]
+rotation = 1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=389879907]
 scale = Vector2(4.846889, 5.90558)

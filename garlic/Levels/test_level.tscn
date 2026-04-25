@@ -6,6 +6,12 @@
 [ext_resource type="Shader" uid="uid://btqdlnrsu0iku" path="res://Shader/hitflash.tres" id="4_i4ak4"]
 [ext_resource type="Script" uid="uid://3ydraraalisp" path="res://Scripts/Player/attackspawner.gd" id="5_3158n"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3158n"]
+resource_local_to_scene = true
+shader = ExtResource("4_i4ak4")
+shader_parameter/Enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ub4j8"]
 resource_local_to_scene = true
 shader = ExtResource("4_i4ak4")
@@ -13,12 +19,6 @@ shader_parameter/Enabled = false
 shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pvdih"]
-resource_local_to_scene = true
-shader = ExtResource("4_i4ak4")
-shader_parameter/Enabled = false
-shader_parameter/tint = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7e6fp"]
 resource_local_to_scene = true
 shader = ExtResource("4_i4ak4")
 shader_parameter/Enabled = false
@@ -38,7 +38,7 @@ speed = 800
 zoom = Vector2(0.2, 0.2)
 
 [node name="slime" parent="." unique_id=655848703 instance=ExtResource("3_4k50d")]
-material = SubResource("ShaderMaterial_ub4j8")
+material = SubResource("ShaderMaterial_3158n")
 position = Vector2(6357, -1880)
 collision_layer = 2
 health = 400
@@ -46,7 +46,7 @@ speed = 400
 MoveAttack = false
 
 [node name="slime2" parent="." unique_id=109107600 instance=ExtResource("3_4k50d")]
-material = SubResource("ShaderMaterial_pvdih")
+material = SubResource("ShaderMaterial_ub4j8")
 position = Vector2(6518, 1350)
 collision_layer = 2
 health = 400
@@ -54,7 +54,7 @@ speed = 400
 MoveAttack = false
 
 [node name="slime3" parent="." unique_id=569323319 instance=ExtResource("3_4k50d")]
-material = SubResource("ShaderMaterial_7e6fp")
+material = SubResource("ShaderMaterial_pvdih")
 position = Vector2(7499, -127)
 collision_layer = 2
 health = 400

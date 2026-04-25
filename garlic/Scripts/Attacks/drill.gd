@@ -6,11 +6,13 @@ extends Node2D
 @export var speed : int = 500
 @export var duration : float = 5
 
+var level
 var steer  = 20
 var closest
 var target_angle
 
 func _ready() -> void:
+	global_position = Global.player.global_position
 	z_index = Global.player.z_index-1
 	closest = Global.find_closest_in_group(global_position, "enemies")
 	
@@ -19,14 +21,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
-
-	if closest and is_instance_valid(closest):
+	if is_instance_valid(closest):
 		target_angle = global_position.angle_to_point(closest.global_position)
+		rotation = lerp_angle(rotation, target_angle, steer * delta)
 	else:
 		closest = Global.find_closest_in_group(global_position, "enemies")
 	
-	rotation = lerp_angle(rotation, target_angle, steer * delta)
 	position += transform.x * speed * delta
 	
 	_expire(delta)

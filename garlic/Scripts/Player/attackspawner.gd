@@ -4,13 +4,15 @@ var attacks: Dictionary[String, PackedScene] = {
 	"whipp": preload("res://Scripts/Attacks/whipp.tscn"),
 	"poison": preload("res://Scripts/Attacks/poison.tscn"),
 	"orbital": preload("res://Scripts/Attacks/orbital.tscn"),
-	"grab": preload("res://Scripts/Attacks/grab.tscn")
+	"grab": preload("res://Scripts/Attacks/grab.tscn"),
+	"drill": preload("res://Scripts/Attacks/drill.tscn")
 }
 var attack_levels: Dictionary[String, int] = {
 	"whipp": 1,
 	"poison": 1,
 	"orbital": 1,
-	"grab": 1
+	"grab": 1,
+	"drill": 1
 }
 # every attack needs modifiable traits like:
 #	>timer between attacks
