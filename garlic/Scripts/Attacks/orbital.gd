@@ -1,5 +1,6 @@
 extends Node2D
 
+var level
 var closest
 var orb_distance=500
 var orb_count=1
@@ -18,8 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	for i in range(orbs.size()):
-		orbs[i].position = pos_on_circle(orb_distance, (current_angle+i)*TAU/orbs.size())
+		orbs[i].position = Global.player.position + pos_on_circle(orb_distance, (current_angle+i)*TAU/orbs.size())
 	current_angle += delta
-		
 func pos_on_circle(distance: int, angle: float) -> Vector2:
 	return Vector2(cos(angle), sin(angle))*distance

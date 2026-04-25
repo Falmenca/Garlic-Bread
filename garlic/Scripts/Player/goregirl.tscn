@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://lfqn8biumi7e" path="res://Assets/Player/Goregirl/goregirl1.png" id="1_ca6i5"]
 [ext_resource type="Script" uid="uid://5ehwfwddrkl5" path="res://Scripts/Player/goregirl.gd" id="1_ekb72"]
 [ext_resource type="PackedScene" uid="uid://bdrc50ve4q5d8" path="res://Scripts/hurtbox.tscn" id="3_7vfvk"]
-[ext_resource type="Script" uid="uid://3ydraraalisp" path="res://Scripts/Player/attackspawner.gd" id="4_rx7wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vfvk"]
 size = Vector2(10.121148, 15.781589)
@@ -44,6 +43,3 @@ debug_color = Color(0.34548637, 0.61409646, 0.26480636, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=1249122016]
 sprite_frames = SubResource("SpriteFrames_ekb72")
-
-[node name="AttackSpawner" type="Node2D" parent="RotationOffset" unique_id=1474298817]
-script = ExtResource("4_rx7wt")

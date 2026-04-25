@@ -7,12 +7,12 @@ func _ready() -> void:
 
 
 func find_closest_in_group(position: Vector2, group_name: String) -> CharacterBody2D:
-	##Returns closest node from set position from nodes in group of set group name
+	##Returns closest alive (health>0) node from set position from nodes in group of set group name
 	var closest_dist = 0
 	var closest: Node
 	for node in get_tree().get_nodes_in_group(group_name):
 		var dist = position.distance_to(node.position)
-		if dist < closest_dist or not closest_dist:
+		if dist < closest_dist or not closest_dist and node.health>0:
 			closest_dist = dist
 			closest = node
 	return closest

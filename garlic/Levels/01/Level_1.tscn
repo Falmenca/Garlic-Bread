@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dlgexqpnls33n"]
 
 [ext_resource type="PackedScene" uid="uid://dwcp4mrk143jq" path="res://Scripts/Player/goregirl.tscn" id="1_48qom"]
+[ext_resource type="Script" uid="uid://3ydraraalisp" path="res://Scripts/Player/attackspawner.gd" id="4_7rj6t"]
 [ext_resource type="PackedScene" uid="uid://bkoag1up2hdio" path="res://Scripts/Utilities/Pause.tscn" id="10_l27a8"]
 [ext_resource type="Script" uid="uid://b6h2qhu63w5lb" path="res://Scripts/enemy/enemySpawner.gd" id="11_48qom"]
 
 [node name="Level1" type="Node2D" unique_id=810896735]
 
 [node name="Goregirl" parent="." unique_id=435559364 instance=ExtResource("1_48qom")]
-scale = Vector2(0.5, 0.5)
 motion_mode = 0
 speed = 800
 
@@ -18,3 +18,6 @@ zoom = Vector2(0.2, 0.2)
 
 [node name="EnemySpawner" type="Node" parent="." unique_id=223161783]
 script = ExtResource("11_48qom")
+
+[node name="AttackSpawner" type="Node" parent="." unique_id=1993786272]
+script = ExtResource("4_7rj6t")

@@ -2,17 +2,30 @@
 
 [ext_resource type="Script" uid="uid://ct6nnhc7j05j4" path="res://Scripts/Attacks/orbital.gd" id="1_n8530"]
 [ext_resource type="Texture2D" uid="uid://c86j0jxi8sv7b" path="res://Assets/Enemy/goreslime spritesheet.png" id="2_3qh5d"]
+[ext_resource type="Script" uid="uid://dwed140n0wta7" path="res://Scripts/hitbox.gd" id="3_cqhkt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_247oy"]
+radius = 80.00625
 
 [node name="Orbital" type="Node2D" unique_id=506878377]
 script = ExtResource("1_n8530")
 
 [node name="Orb" type="Node2D" parent="." unique_id=1723026768]
 
-[node name="GoreslimeSpritesheet" type="Sprite2D" parent="Orb" unique_id=1778417521]
+[node name="Sprite2D" type="Sprite2D" parent="Orb" unique_id=1778417521]
 position = Vector2(-53, -258)
 texture = ExtResource("2_3qh5d")
 hframes = 3
 vframes = 3
 frame = 4
+
+[node name="Hitbox" type="Area2D" parent="Orb" unique_id=1857187604]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("3_cqhkt")
+metadata/_custom_type_script = "uid://dwed140n0wta7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orb/Hitbox" unique_id=44565491]
+shape = SubResource("CircleShape2D_247oy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=270903516]

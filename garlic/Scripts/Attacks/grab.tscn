@@ -3,10 +3,70 @@
 [ext_resource type="Script" uid="uid://ctb58jvrr70v0" path="res://Scripts/Attacks/grab.gd" id="1_dwqbd"]
 [ext_resource type="Texture2D" uid="uid://jfcmhl7wp2uv" path="res://Assets/Attacks/grabby.png" id="2_dwqbd"]
 
+[sub_resource type="Animation" id="Animation_dwqbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_s4slw"]
+resource_name = "attack"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_f23fv"]
+resource_name = "loop"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 10, 9, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edq8g"]
+_data = {
+&"RESET": SubResource("Animation_dwqbd"),
+&"attack": SubResource("Animation_s4slw"),
+&"loop": SubResource("Animation_f23fv")
+}
+
 [node name="Grab" type="Node2D" unique_id=1638182750]
 script = ExtResource("1_dwqbd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1799213531]
-position = Vector2(31, -3)
-scale = Vector2(2, 2)
+position = Vector2(-27, -55)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_dwqbd")
+hframes = 3
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1745531743]
+libraries/ = SubResource("AnimationLibrary_edq8g")
