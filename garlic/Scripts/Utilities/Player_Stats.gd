@@ -10,6 +10,11 @@ var pStats_default = {
 	level = 1,
 	strength = 10,
 	defense = 5
+	#atkspeed
+	#area
+	#cd
+	#duration
+	#amount
 }
 
 #Player stats

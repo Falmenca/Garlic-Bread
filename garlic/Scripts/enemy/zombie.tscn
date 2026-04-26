@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://dxk0gjvgdnx05"]
+
+[ext_resource type="Script" uid="uid://r68xtgba8yue" path="res://Scripts/enemy/zombie.gd" id="1_7ewjj"]
+[ext_resource type="Shader" uid="uid://btqdlnrsu0iku" path="res://Shader/hitflash.tres" id="2_b1hg3"]
+[ext_resource type="Texture2D" uid="uid://ckt6mekxb8pp0" path="res://Assets/Enemy/zmbiegirl.png" id="3_un3yb"]
+[ext_resource type="Script" uid="uid://dwed140n0wta7" path="res://Scripts/hitbox.gd" id="4_xmoq8"]
+[ext_resource type="Script" uid="uid://6br7gglc03eq" path="res://Scripts/hurtbox.gd" id="5_rv0h8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jdjnv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5rba"]
+resource_local_to_scene = true
+shader = ExtResource("2_b1hg3")
+shader_parameter/Enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt7ks"]
+atlas = ExtResource("3_un3yb")
+region = Rect2(0, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obu8k"]
+atlas = ExtResource("3_un3yb")
+region = Rect2(0, 744, 744, 744)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayfip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obu8k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v166d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmli6"]
+
+[sub_resource type="Animation" id="Animation_4c08k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotationOffset/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_glwgn"]
+resource_name = "attack"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotationOffset/Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8m1m2"]
+_data = {
+&"RESET": SubResource("Animation_4c08k"),
+&"attack": SubResource("Animation_glwgn")
+}
+
+[sub_resource type="Animation" id="Animation_4mbhq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotationOffset/AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_da1ai"]
+resource_name = "hitflash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RotationOffset/AnimatedSprite2D:material:shader_parameter/Enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_64l14"]
+_data = {
+&"RESET": SubResource("Animation_4mbhq"),
+&"hitflash": SubResource("Animation_da1ai")
+}
+
+[node name="zombie" type="CharacterBody2D" unique_id=1830816565]
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_7ewjj")
+health = 500
+speed = 200
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=402293949]
+scale = Vector2(15.774083, 20.84944)
+shape = SubResource("CapsuleShape2D_jdjnv")
+debug_color = Color(0.5824785, 0.52660066, 0.45796221, 0.41960785)
+
+[node name="ChaseTimer" type="Timer" parent="." unique_id=2099780022]
+autostart = true
+
+[node name="RotationOffset" type="Node2D" parent="." unique_id=1179909183]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=1084812344]
+material = SubResource("ShaderMaterial_c5rba")
+sprite_frames = SubResource("SpriteFrames_ayfip")
+autoplay = "default"
+frame_progress = 0.26492944
+
+[node name="Hitbox" type="Area2D" parent="RotationOffset" unique_id=880693025]
+monitoring = false
+script = ExtResource("4_xmoq8")
+damage = 10
+metadata/_custom_type_script = "uid://dwed140n0wta7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationOffset/Hitbox" unique_id=1355224766]
+position = Vector2(-154, -25)
+scale = Vector2(28.474813, 26.364115)
+shape = SubResource("CircleShape2D_v166d")
+disabled = true
+debug_color = Color(0.9380159, 0.2177023, 0.3232401, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=392156766]
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_rv0h8")
+metadata/_custom_type_script = "uid://6br7gglc03eq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2059140436]
+scale = Vector2(19.01324, 32.331444)
+shape = SubResource("CircleShape2D_xmli6")
+debug_color = Color(0.7399914, 0.46234596, 0.18357372, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1564167698]
+libraries/ = SubResource("AnimationLibrary_8m1m2")
+
+[node name="ShaderPlayer" type="AnimationPlayer" parent="." unique_id=955309804]
+libraries/ = SubResource("AnimationLibrary_64l14")
+
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_hurtbox_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

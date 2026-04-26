@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://cxadl3lxdlisu"]
+
+[ext_resource type="Texture2D" uid="uid://bi5hovmv6qcbm" path="res://Assets/Props/cross .png" id="1_420ww"]
+[ext_resource type="Script" uid="uid://g7wucwd7fuq2" path="res://Scripts/Items/cross.gd" id="1_mu4a8"]
+[ext_resource type="Script" uid="uid://dwed140n0wta7" path="res://Scripts/hitbox.gd" id="2_mu4a8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knh3y"]
+atlas = ExtResource("1_420ww")
+region = Rect2(0, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2fju"]
+atlas = ExtResource("1_420ww")
+region = Rect2(744, 0, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxibo"]
+atlas = ExtResource("1_420ww")
+region = Rect2(0, 744, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2xck"]
+atlas = ExtResource("1_420ww")
+region = Rect2(744, 744, 744, 744)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jamkn"]
+atlas = ExtResource("1_420ww")
+region = Rect2(0, 1488, 744, 744)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7ohb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knh3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2fju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxibo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2xck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jamkn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y6xet"]
+
+[sub_resource type="Animation" id="Animation_mu4a8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_knh3y"]
+resource_name = "use"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6999999),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2fju"]
+_data = {
+&"RESET": SubResource("Animation_mu4a8"),
+&"use": SubResource("Animation_knh3y")
+}
+
+[node name="Cross" type="Node2D" unique_id=1997928520]
+script = ExtResource("1_mu4a8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=706111708]
+sprite_frames = SubResource("SpriteFrames_y7ohb")
+autoplay = "default"
+frame_progress = 0.39047265
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1217695191]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("2_mu4a8")
+damage = -20
+force = 0
+metadata/_custom_type_script = "uid://dwed140n0wta7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=628127145]
+position = Vector2(5, 5)
+scale = Vector2(13.30835, 17.27364)
+shape = SubResource("CircleShape2D_y6xet")
+debug_color = Color(0.37720728, 0.5818126, 0.55307484, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2041521339]
+libraries/ = SubResource("AnimationLibrary_n2fju")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

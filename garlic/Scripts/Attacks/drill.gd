@@ -7,7 +7,7 @@ extends Node2D
 @export var duration : float = 5
 
 var level
-var steer  = 20
+var steer  = 2
 var closest
 var target_angle
 

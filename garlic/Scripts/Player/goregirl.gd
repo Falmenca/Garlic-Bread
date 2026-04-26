@@ -42,7 +42,9 @@ func flip():
 		rotation_offset.scale.x = 1
 	
 func take_damage(dmg):
-	health = health - dmg
+	health = health - dmg #-dmg
+	#print("a faggot just hit me")
+	print("girl hp:", health)
 
 func take_knockback(direction : Vector2,force : float, knockback_duration : float,):
 	knockback = direction * force
