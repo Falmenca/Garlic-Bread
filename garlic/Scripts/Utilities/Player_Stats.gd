@@ -16,6 +16,8 @@ var pStats_default = {
 var pStats = {}
 
 func reset_pStats():
+	if pStats:
+		pStats.clear()
 	pStats = pStats_default.duplicate(true)
 
 func set_pname(value: String):

@@ -29,8 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if state == GameState.PAUSE:
 		Pause.handle_menu_input(event)
-	
-	if state == GameState.SETTINGS:
+	elif state == GameState.SETTINGS:
 		Settings.handle_menu_input(event)
 
 func set_state(nextState: GameState) -> void:
@@ -40,18 +39,22 @@ func get_state() -> GameState:
 	return state
 
 func toggle_pause():
+	get_viewport().set_input_as_handled()
+	
 	match state:
 		GameState.PLAY_ACTIVE:
 			set_state(GameState.PAUSE)
 			get_tree().paused = true
-			Pause.pauseMenuScreen.visible = true
+			Pause.open_menu()
 				
 		GameState.PAUSE:
 			set_state(GameState.PLAY_ACTIVE)
 			get_tree().paused = false
-			Pause.pauseMenuScreen.visible = false
+			Pause.close_menu()
 
 func toggle_settings():
+	get_viewport().set_input_as_handled()
+	
 	match state:
 		GameState.MAIN:
 			prevState = GameState.MAIN

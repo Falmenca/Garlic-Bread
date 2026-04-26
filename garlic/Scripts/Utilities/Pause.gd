@@ -53,3 +53,12 @@ func _execute_selection():
 			get_tree().change_scene_to_file("res://Pages/Menus/Main_Menu.tscn")
 			
 		3: get_tree().quit()
+
+func open_menu():
+	currentSelection = 0
+	_update_selection()
+	pauseMenuScreen.visible = true
+	pauseArrow.visible = true
+	
+func close_menu():
+	pauseMenuScreen.visible = false
