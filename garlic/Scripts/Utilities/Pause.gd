@@ -45,11 +45,11 @@ func _update_selection() -> void:
 	
 func _execute_selection():
 	match currentSelection:
-		0: MenuController.toggle_pause()
-		1: MenuController.toggle_settings()
+		0: GameController.toggle_pause()
+		1: GameController.toggle_settings()
 		2: 
-			MenuController.toggle_pause()
-			MenuController.set_state(MenuController.MenuState.MAIN)
+			GameController.toggle_pause()
+			GameController.set_state(GameController.GameState.MAIN)
 			get_tree().change_scene_to_file("res://Pages/Menus/Main_Menu.tscn")
 			
 		3: get_tree().quit()

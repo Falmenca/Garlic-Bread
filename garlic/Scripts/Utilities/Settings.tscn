@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_0vtga"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf3m1"]
-bg_color = Color(0.16, 0.16, 0.16, 0.88235295)
+bg_color = Color(0.16, 0.16, 0.16, 1)
 
 [node name="Settings" type="CanvasLayer" unique_id=1600310553]
+layer = 6
 script = ExtResource("1_3blog")
 
 [node name="MenuOptions" type="ItemList" parent="." unique_id=456962281]

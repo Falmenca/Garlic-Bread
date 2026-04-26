@@ -22,6 +22,8 @@ MenuController="*uid://bmjdep8y8l7o3"
 Pause="*uid://d2ukcxle2ssa8"
 Settings="*uid://d3hbrknx3rdgi"
 Global="*uid://4fwegk027uob"
+PlayerStats="*uid://6ijt81u01ee7"
+GameController="*uid://bmjdep8y8l7o3"
 
 [display]
 

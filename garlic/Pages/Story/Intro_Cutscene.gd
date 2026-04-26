@@ -19,6 +19,7 @@ func _input(event):
 			main_text.visible_ratio = 1.0
 	
 	if event.is_action_pressed("ui_accept") and main_text.visible_ratio == 1.0 and press_any_button.visible == true:
+		GameController.set_state(GameController.GameState.PLAY_ACTIVE)
 		get_tree().change_scene_to_file("res://Levels/01/Level_1.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

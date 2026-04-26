@@ -14,6 +14,7 @@ var knockback : Vector2 = Vector2.ZERO
 var knockback_timer : float
 
 func _ready():
+	PlayerStats.reset_pStats()
 	print(typeof(speed), speed)
 	Global.player = self
 	

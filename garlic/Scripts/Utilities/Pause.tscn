@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://cq83tgi1edkvf" path="res://Scripts/Utilities/Pause.gd" id="1_b0aok"]
 [ext_resource type="Texture2D" uid="uid://tc6n3yhtf2hi" path="res://Assets/Level_Menu/MenuArrow.png" id="2_uft1l"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s468d"]
+bg_color = Color(0.07, 0.07, 0.07, 0.5058824)
+
 [node name="Pause" type="CanvasLayer" unique_id=1317229918]
+layer = 5
 script = ExtResource("1_b0aok")
 
 [node name="Background" type="TextureRect" parent="." unique_id=873948921]
@@ -11,6 +15,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Title" type="RichTextLabel" parent="Background" unique_id=1102061]
+z_index = 2
 layout_mode = 0
 offset_top = 400.0
 offset_right = 1920.0
@@ -25,6 +30,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s468d")
 
 [node name="Continue" type="RichTextLabel" parent="Background/MenuOptions" unique_id=1888805658]
 layout_mode = 0

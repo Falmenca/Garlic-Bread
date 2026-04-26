@@ -51,7 +51,7 @@ func _execute_selection():
 			0: FpsCounter.toggle_fps_display()
 			1: print("Volume")
 			2: print("Screen")
-			3: MenuController.toggle_settings()
+			3: GameController.toggle_settings()
 
 func open_menu():
 	active = true

@@ -1,20 +1,21 @@
 extends Node
 
-enum MenuState {
+enum GameState {
 	# Main Menus
 	INTRO,
 	MAIN,
 	
 	# Main game
-	GAMEPLAY,
+	CUTSCENE,
+	PLAY_ACTIVE,
 	
 	# Utility
 	PAUSE,
 	SETTINGS
 }
 
-var state: MenuState = MenuState.INTRO
-var prevState: MenuState = MenuState.MAIN
+var state: GameState = GameState.INTRO
+var prevState: GameState = GameState.MAIN
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -26,42 +27,42 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"):
 		toggle_pause()
 	
-	if state == MenuState.PAUSE:
+	if state == GameState.PAUSE:
 		Pause.handle_menu_input(event)
 	
-	if state == MenuState.SETTINGS:
+	if state == GameState.SETTINGS:
 		Settings.handle_menu_input(event)
 
-func set_state(nextState: MenuState) -> void:
+func set_state(nextState: GameState) -> void:
 	state = nextState
 
-func get_state() -> MenuState:
+func get_state() -> GameState:
 	return state
 
 func toggle_pause():
 	match state:
-		MenuState.GAMEPLAY:
-			set_state(MenuState.PAUSE)
+		GameState.PLAY_ACTIVE:
+			set_state(GameState.PAUSE)
 			get_tree().paused = true
 			Pause.pauseMenuScreen.visible = true
 				
-		MenuState.PAUSE:
-			set_state(MenuState.GAMEPLAY)
+		GameState.PAUSE:
+			set_state(GameState.PLAY_ACTIVE)
 			get_tree().paused = false
 			Pause.pauseMenuScreen.visible = false
 
 func toggle_settings():
 	match state:
-		MenuState.MAIN:
-			prevState = MenuState.MAIN
-			set_state(MenuState.SETTINGS)
+		GameState.MAIN:
+			prevState = GameState.MAIN
+			set_state(GameState.SETTINGS)
 			Settings.open_menu()
 
-		MenuState.PAUSE:
-			prevState = MenuState.PAUSE
-			set_state(MenuState.SETTINGS)
+		GameState.PAUSE:
+			prevState = GameState.PAUSE
+			set_state(GameState.SETTINGS)
 			Settings.open_menu()
 
-		MenuState.SETTINGS:
+		GameState.SETTINGS:
 			set_state(prevState)
 			Settings.close_menu()
