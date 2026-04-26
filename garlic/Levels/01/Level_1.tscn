@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dlgexqpnls33n"]
 
 [ext_resource type="PackedScene" uid="uid://dwcp4mrk143jq" path="res://Scripts/Player/goregirl.tscn" id="1_48qom"]
-[ext_resource type="Script" path="res://Scripts/Player/attackspawner.gd" id="4_7rj6t"]
+[ext_resource type="Script" uid="uid://3ydraraalisp" path="res://Scripts/Player/attackspawner.gd" id="4_7rj6t"]
 [ext_resource type="PackedScene" uid="uid://dsxh0tip5kmwv" path="res://Scripts/Player/HUD.tscn" id="4_efvo1"]
-[ext_resource type="Script" uid="uid://b6h2qhu63w5lb" path="res://Scripts/Enemy/EnemySpawner.gd" id="11_48qom"]
+[ext_resource type="Script" uid="uid://b6h2qhu63w5lb" path="res://Scripts/enemy/EnemySpawner.gd" id="11_48qom"]
 
 [node name="Level1" type="Node2D" unique_id=810896735]
 

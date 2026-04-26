@@ -1,10 +1,167 @@
 [gd_scene format=3 uid="uid://dcffge70pi07v"]
 
 [ext_resource type="Script" uid="uid://bc207j70iuffi" path="res://Scripts/Attacks/poison.gd" id="1_oerb4"]
-[ext_resource type="Texture2D" uid="uid://dh3ond7yesgji" path="res://Assets/Attacks/poison.png" id="2_1vo6e"]
+[ext_resource type="Texture2D" uid="uid://b4eaq833h2i1d" path="res://Assets/Attacks/poison_cloud.png" id="2_1vo6e"]
+[ext_resource type="Texture2D" uid="uid://duuhblxifmvq4" path="res://Assets/Attacks/poison_potato.png" id="3_b8m5y"]
+[ext_resource type="Script" uid="uid://dwed140n0wta7" path="res://Scripts/hitbox.gd" id="4_b8m5y"]
+
+[sub_resource type="Animation" id="Animation_dno6a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PoisonPotato:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PoisonCloud:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_imj3r"]
+resource_name = "new_animation"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PoisonCloud:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PoisonPotato:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.018561477),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cyqec"]
+resource_name = "potato_explode"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PoisonPotato:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PoisonCloud:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqb47"]
+_data = {
+&"RESET": SubResource("Animation_dno6a"),
+&"new_animation": SubResource("Animation_imj3r"),
+&"potato_explode": SubResource("Animation_cyqec")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dno6a"]
+radius = 464.0388
 
 [node name="Poison" type="Node2D" unique_id=364699681]
 script = ExtResource("1_oerb4")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1846849413]
+[node name="PoisonCloud" type="Sprite2D" parent="." unique_id=1837383317]
+position = Vector2(8, 16)
+scale = Vector2(2, 2)
 texture = ExtResource("2_1vo6e")
+hframes = 2
+vframes = 3
+frame = 5
+
+[node name="PoisonPotato" type="Sprite2D" parent="." unique_id=105136785]
+texture = ExtResource("3_b8m5y")
+hframes = 3
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1961412781]
+libraries/ = SubResource("AnimationLibrary_mqb47")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1836364479]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_b8m5y")
+metadata/_custom_type_script = "uid://dwed140n0wta7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1827360366]
+shape = SubResource("CircleShape2D_dno6a")
+disabled = true

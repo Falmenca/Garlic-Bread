@@ -61,5 +61,5 @@ health = 400
 speed = 400
 MoveAttack = false
 
-[node name="Node" type="Node" parent="." unique_id=1767137428]
+[node name="attack spawner" type="Node" parent="." unique_id=1767137428]
 script = ExtResource("5_3158n")
