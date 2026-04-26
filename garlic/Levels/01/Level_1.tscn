@@ -3,9 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dwcp4mrk143jq" path="res://Scripts/Player/goregirl.tscn" id="1_48qom"]
 [ext_resource type="Script" uid="uid://3ydraraalisp" path="res://Scripts/Player/attackspawner.gd" id="4_7rj6t"]
 [ext_resource type="PackedScene" uid="uid://dsxh0tip5kmwv" path="res://Scripts/Player/HUD.tscn" id="4_efvo1"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://cxadl3lxdlisu" path="res://Scripts/Items/cross.tscn" id="5_efvo1"]
 [ext_resource type="PackedScene" uid="uid://5gtqhauko45y" path="res://Scripts/enemy/slime.tscn" id="6_840aq"]
 [ext_resource type="Script" uid="uid://dca3xtt2haijm" path="res://Scripts/enemy/EnemySpawner.gd" id="11_48qom"]
+=======
+[ext_resource type="Script" uid="uid://b6h2qhu63w5lb" path="res://Scripts/enemy/EnemySpawner.gd" id="11_48qom"]
+>>>>>>> 6f62f2dd685a0bfa0291febadc542107be8614ce
 
 [node name="Level1" type="Node" unique_id=1976847557]
 
