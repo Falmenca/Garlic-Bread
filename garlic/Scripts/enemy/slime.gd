@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var DamageNumberPos = $DamageNumber
 @onready var RotationOffset: Node2D = $RotationOffset
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var animShader: AnimationPlayer = $ShaderPlayer
@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 @export var MoveAttack : bool = true #toggle to enable movement on attacking
 
+var Dying : bool = false
 var Attacking : bool = false
 var PosAttack : Vector2
 var RandDistX = 0
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if health < 1:
 		_death()
 	
-	if player:
+	if player and not Dying:
 		if (MoveAttack == false and not Attacking) or (MoveAttack == true):
 			_chase()
 		if (position.distance_to(player.position)<AttackRange) and (not Attacking):
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _death():
+	Dying = true
 	anim.play("death")
 	#dies
 
@@ -61,7 +63,7 @@ func _on_chase_timer_timeout() -> void:
 func take_damage(dmg): #works with hurtbox
 	health = health - dmg
 	animShader.play("hitflash")
-
+	DisplayNumbers.display_number(dmg, DamageNumberPos.global_position, false)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":

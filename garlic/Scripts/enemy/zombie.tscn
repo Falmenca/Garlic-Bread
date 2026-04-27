@@ -138,6 +138,8 @@ autoplay = "default"
 frame_progress = 0.26492944
 
 [node name="Hitbox" type="Area2D" parent="RotationOffset" unique_id=880693025]
+collision_layer = 4
+collision_mask = 2
 monitoring = false
 script = ExtResource("4_xmoq8")
 damage = 10
@@ -151,6 +153,8 @@ disabled = true
 debug_color = Color(0.9380159, 0.2177023, 0.3232401, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=392156766]
+position = Vector2(-23, 20)
+scale = Vector2(1.2124056, 1.1742511)
 collision_layer = 4
 collision_mask = 2
 monitorable = false

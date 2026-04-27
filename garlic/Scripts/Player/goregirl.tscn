@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dwcp4mrk143jq"]
 
-[ext_resource type="Texture2D" uid="uid://lfqn8biumi7e" path="res://Assets/Player/Goregirl/goregirl1.png" id="1_ca6i5"]
 [ext_resource type="Script" uid="uid://5ehwfwddrkl5" path="res://Scripts/Player/goregirl.gd" id="1_ekb72"]
 [ext_resource type="PackedScene" uid="uid://bdrc50ve4q5d8" path="res://Scripts/hurtbox.tscn" id="3_7vfvk"]
 [ext_resource type="Shader" uid="uid://vqjkysyjin23" path="res://Plugin/shaders/burn.gdshader" id="3_rx7wt"]
+[ext_resource type="Texture2D" uid="uid://dy0sbtydpgceb" path="res://Assets/Player/Goregirl/goregirl emotions.png" id="4_ed5gl"]
+[ext_resource type="Texture2D" uid="uid://dfmmhrli4x6ns" path="res://Assets/Player/Goregirl/goregirlsheet.png" id="5_6b7sw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vfvk"]
 size = Vector2(10.121148, 15.781589)
@@ -53,14 +54,101 @@ shader_parameter/gravity = Vector3(0, 0, 0)
 shader_parameter/progress = 0.63999998569472
 shader_parameter/particle_lifetime_fraction = 1.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqydn"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(0, 1536, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72huj"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(768, 1536, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asjuk"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycqq3"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(768, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm8xr"]
+atlas = ExtResource("5_6b7sw")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_decs6"]
+atlas = ExtResource("5_6b7sw")
+region = Rect2(0, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yujyr"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(768, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cd0i5"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(1536, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wclpp"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(1536, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agdyl"]
+atlas = ExtResource("4_ed5gl")
+region = Rect2(0, 768, 768, 768)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ekb72"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ca6i5")
+"texture": SubResource("AtlasTexture_wqydn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72huj")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asjuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycqq3")
+}],
+"loop": true,
+"name": &"bored",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm8xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_decs6")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yujyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cd0i5")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wclpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agdyl")
+}],
+"loop": true,
+"name": &"hurt",
 "speed": 5.0
 }]
 
@@ -87,3 +175,6 @@ debug_color = Color(0.34548637, 0.61409646, 0.26480636, 0.41960785)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationOffset" unique_id=1249122016]
 material = SubResource("ShaderMaterial_ed5gl")
 sprite_frames = SubResource("SpriteFrames_ekb72")
+animation = &"hurt"
+autoplay = "default"
+frame_progress = 0.46757707
